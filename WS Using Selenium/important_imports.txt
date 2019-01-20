@@ -1,0 +1,24 @@
+from selenium import webdriver 
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC 
+from selenium.common.exceptions import TimeoutException
+
+
+1st import: Allows you to launch/initialise a browser.
+2nd import: Allows you to search for things using specific parameters.
+3rd import: Allows you to wait for a page to load.
+4th import: Specify what you are looking for on a specific page in order to determine that the webpage has loaded.
+5th import: Handling a timeout situation.
+
+
+EXAMPLE :-
+
+
+# Wait 20 seconds for page to load
+timeout = 20
+try:
+    WebDriverWait(browser, timeout).until(EC.visibility_of_element_located((By.XPATH, “//img[@class=’avatar width-full rounded-2']”)))
+except TimeoutException:
+    print(“Timed out waiting for page to load”)
+    browser.quit()
